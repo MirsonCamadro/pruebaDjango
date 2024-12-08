@@ -1,9 +1,3 @@
-{% extends 'vehiculo/base.html' %}
-
-{% block title %}Lista de Vehículos{% endblock %}
-
-{% block content %}
-<h1>Lista de Vehículos</h1>
 <table class="table table-striped">
     <thead>
         <tr>
@@ -13,6 +7,7 @@
             <th>Serial Motor</th>
             <th>Categoría</th>
             <th>Precio</th>
+            <th>Rango de Precio</th>
         </tr>
     </thead>
     <tbody>
@@ -24,8 +19,8 @@
             <td>{{ vehiculo.serial_motor }}</td>
             <td>{{ vehiculo.categoria }}</td>
             <td>${{ vehiculo.precio }}</td>
+            <td>{{ vehiculo.rango_precio }}</td>
         </tr>
         {% endfor %}
     </tbody>
 </table>
-{% endblock %}
