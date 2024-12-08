@@ -1,37 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Vehículos</title>
-</head>
-<body>
-    <h1>Lista de Vehículos</h1>
-    <table border="1">
-        <thead>
-            <tr>
-                <th>Marca</th>
-                <th>Modelo</th>
-                <th>Serial Carrocería</th>
-                <th>Serial Motor</th>
-                <th>Categoría</th>
-                <th>Precio</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for vehiculo in vehiculos %}
-            <tr>
-                <td>{{ vehiculo.marca }}</td>
-                <td>{{ vehiculo.modelo }}</td>
-                <td>{{ vehiculo.serial_carroceria }}</td>
-                <td>{{ vehiculo.serial_motor }}</td>
-                <td>{{ vehiculo.categoria }}</td>
-                <td>{{ vehiculo.precio }}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-    <a href="{% url 'agregar_vehiculo' %}">Agregar Vehículo</a>
-    <a href="{% url 'index' %}">Volver al Inicio</a>
-</body>
-</html>
+{% extends 'vehiculo/base.html' %}
+
+{% block title %}Lista de Vehículos{% endblock %}
+
+{% block content %}
+<h1>Lista de Vehículos</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Marca</th>
+            <th>Modelo</th>
+            <th>Serial Carrocería</th>
+            <th>Serial Motor</th>
+            <th>Categoría</th>
+            <th>Precio</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for vehiculo in vehiculos %}
+        <tr>
+            <td>{{ vehiculo.marca }}</td>
+            <td>{{ vehiculo.modelo }}</td>
+            <td>{{ vehiculo.serial_carroceria }}</td>
+            <td>{{ vehiculo.serial_motor }}</td>
+            <td>{{ vehiculo.categoria }}</td>
+            <td>${{ vehiculo.precio }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
