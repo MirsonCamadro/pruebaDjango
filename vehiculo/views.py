@@ -14,3 +14,7 @@ def agregar_vehiculo(request):
     else:
         form = VehiculoForm()
     return render(request, 'vehiculo/agregar_vehiculo.html', {'form': form})  # Correcta ruta a la plantilla
+
+def listar_vehiculos(request):
+    vehiculos = Vehiculo.objects.all()
+    return render(request, 'vehiculo/listar_vehiculos.html', {'vehiculos': vehiculos})
